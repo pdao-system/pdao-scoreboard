@@ -1,9 +1,8 @@
-
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
-const fs = require("fs")
-app.use(cors())
+const fs = require("fs");
+app.use(cors());
 
 // const updateRuns =  async ()=>{
 //     url = "pdogs.backend";
@@ -12,56 +11,47 @@ app.use(cors())
 //     fs.writeFileSync(result, "./runs.json")
 // }
 
-const updateRuns = async ()=>{
-    url = 'pdogs/backend'
-    
-}
+const updateRuns = async () => {
+  url = "pdogs/backend";
+};
 
-app.get('/', (req, res) => {
-    
-    res.send('Hello World!');
-})
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 function getTeam(account_id) {
-    //TODO: find team with account_id 
-    return "team id"
+  //TODO: find team with account_id
+  return "team id";
 }
 
-
-
-
-function SubmissionToRuns({data, subCnt}){
-    
-    const submissions = data.data; //An array storing the submission
-    const runs = [];
-    for(let i = 0; i < submissions.length; i++){
-        const id = i;
-        const {problem_id, verdict, account_id} = submissions[i];
-        subCnt[problem_id][account_id]++;
-        runs.push({
-            "id": id,
-            "team": getTeam(account_id),
-            "problem": problem_id,
-            "results": verdict === "ACCEPTED" ? "Yes": "No - Wrong Answer"
-        })
-    }
-    const results = {
-        "success": true,
-        "data": {
-            "time": {
-                "contestTime": 18000,
-                "noMoreUpdate": true,
-                "timestamp": 0
-            },
-            "runs": runs,
-        
-        },
-        "errors": null
-    };
-    return results
+function SubmissionToRuns({ data, subCnt }) {
+  const submissions = data.data; //An array storing the submission
+  const runs = [];
+  for (let i = 0; i < submissions.length; i++) {
+    const id = i;
+    const { problem_id, verdict, account_id } = submissions[i];
+    subCnt[problem_id][account_id]++;
+    runs.push({
+      id: id,
+      team: getTeam(account_id),
+      problem: problem_id,
+      results: verdict === "ACCEPTED" ? "Yes" : "No - Wrong Answer",
+    });
+  }
+  const results = {
+    success: true,
+    data: {
+      time: {
+        contestTime: 18000,
+        noMoreUpdate: true,
+        timestamp: 0,
+      },
+      runs: runs,
+    },
+    errors: null,
+  };
+  return results;
 }
-
 
 //runs.json form
 /*
@@ -88,40 +78,35 @@ function SubmissionToRuns({data, subCnt}){
 }
 */
 
-
-
-
-
-app.get('/get', async function (req, res) {
-    //fetch data from pdogs
-await fetch("https://be.pdogs.ntu.im/class/42/view/submission",{
-    method: 'GET',
+app.get("/get", async function (req, res) {
+  //fetch data from pdogs
+  await fetch("https://be.pdogs.ntu.im/class/42/view/submission", {
+    method: "GET",
     headers: {
-        'auth-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo0MTM4LCJleHBpcmUiOiIyMDIzLTAzLTI5VDE0OjQ2OjQwLjYyOTI1NyIsImNhY2hlZF91c2VybmFtZSI6Ilx1ODQ0OVx1NTNjOFx1OTI5OCJ9.R311TOAsS3A2_hMqFo8jHUUHeZgvBu_fpMdE0UlA-rM',
-        'Accept': 'application/json'
-    }}).then((response)=>{
-        
-        return response.json()
-    }).then((data)=>{
-        const result = SubmissionToRuns({...data, subCnt})
-        console.log(result)
-        
-        
-        fs.writeFile('./src/runs.json', JSON.stringify(result), function(err){
-            if(err) {
-                return console.log(err);
-            }
-            console.log("The file was saved!");
-        });
-            
-        
-        res.json(result)
+      "auth-token":
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjo0MTM4LCJleHBpcmUiOiIyMDIzLTAzLTI5VDE0OjQ2OjQwLjYyOTI1NyIsImNhY2hlZF91c2VybmFtZSI6Ilx1ODQ0OVx1NTNjOFx1OTI5OCJ9.R311TOAsS3A2_hMqFo8jHUUHeZgvBu_fpMdE0UlA-rM",
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
     })
+    .then((data) => {
+      const result = SubmissionToRuns({ ...data, subCnt });
+      console.log(result);
 
-})
+      fs.writeFile("./src/runs.json", JSON.stringify(result), function (err) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("The file was saved!");
+      });
 
+      res.json(result);
+    });
+});
 
 const port = 4000;
 app.listen(port, (req, res) => {
-    console.log('listening on port ' + port);
+  console.log("listening on port " + port);
 });
