@@ -1,7 +1,6 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const fs = require("fs");
+/*
 app.use(cors());
 
 // const updateRuns =  async ()=>{
@@ -23,7 +22,7 @@ function getTeam(account_id) {
   //TODO: find team with account_id
   return "team id";
 }
-
+*/
 function SubmissionToRuns({ data, subCnt }) {
   const submissions = data.data; //An array storing the submission
   const runs = [];
@@ -78,7 +77,23 @@ function SubmissionToRuns({ data, subCnt }) {
 }
 */
 
-app.get("/get", async function (req, res) {
+app.get("/update-contest" , async(req , res)=>{
+  try{
+    res.send("Successfully updated contest.json")
+  }
+  catch(err){
+    res.status(500).send(`Internal Error: ${error}`)
+  }
+})
+
+app.get("/update-runs", async function (req, res) {
+  try{
+    res.send("Successfully updated runs.json")
+  }
+  catch(err){
+    res.status(500).send(`Internal Error: ${error}`)
+  }
+  /*
   //fetch data from pdogs
   await fetch("https://be.pdogs.ntu.im/class/42/view/submission", {
     method: "GET",
@@ -95,18 +110,22 @@ app.get("/get", async function (req, res) {
       const result = SubmissionToRuns({ ...data, subCnt });
       console.log(result);
 
-      fs.writeFile("./src/runs.json", JSON.stringify(result), function (err) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("The file was saved!");
-      });
-
-      res.json(result);
+      fs.writeFileSync("./tmp/runs.json", JSON.stringify(result));
+      //res.json(result);
     });
+    res.send("Successfully updated runs.json")
+    */
+});
+/*
+app.use(express.static('dist'))
+*/
+
+app.get('/', (req, res) => {
+  res.send('Hello from PDAO system group!');
 });
 
-const port = 4000;
-app.listen(port, (req, res) => {
-  console.log("listening on port " + port);
+// Listen to the App Engine-specified port, or 8080 otherwise
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}...`);
 });
