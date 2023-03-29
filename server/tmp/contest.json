@@ -1,107 +1,562 @@
 {
     "title": "2023 PDAO - Programming Design and Optimization",
-    "systemName": "PDOGS 6",
-    "systemVersion": "",
+    "systemName": "PDOGS",
+    "systemVersion": "6",
     "problems": [
-        { "id": 0, "name": "A", "color": "red", "title": "Bridge Park" },
-        { "id": 1, "name": "B", "color": "orange", "title": "Football" },
-        { "id": 2, "name": "C", "color": "white", "title": "House Rental" },
-        { "id": 3, "name": "D", "color": "blue", "title": "Independent Edges" },
-        { "id": 4, "name": "E", "color": "yellow", "title": "Memory Cell" },
-        { "id": 5, "name": "F", "color": "ivory", "title": "Meteorites" },
-        { "id": 6, "name": "G", "color": "deeppink", "title": "Percolation" },
-        { "id": 7, "name": "H", "color": "brown", "title": "Power Supply" },
-        { "id": 8, "name": "I", "color": "darkgreen", "title": "Robot" },
-        { "id": 9, "name": "J", "color": "pink", "title": "Room" },
-        { "id": 10, "name": "K", "color": "skyblue", "title": "Rounding" },
-        { "id": 11, "name": "L", "color": "purple", "title": "Virus" }
+        {
+            "id": 0,
+            "pdogs_id": 1061,
+            "title": "Ahoy!!"
+        },
+        {
+            "id": 1,
+            "pdogs_id": 1085,
+            "title": "Enjoy"
+        },
+        {
+            "id": 2,
+            "pdogs_id": 1104,
+            "title": "Fast Food"
+        },
+        {
+            "id": 3,
+            "pdogs_id": 1105,
+            "title": "C8763 Corporation "
+        },
+        {
+            "id": 4,
+            "pdogs_id": 1106,
+            "title": "Big Boss Benson"
+        },
+        {
+            "id": 5,
+            "pdogs_id": 1109,
+            "title": "Go Go Gogoro"
+        },
+        {
+            "id": 6,
+            "pdogs_id": 1110,
+            "title": "Ideal Imperial Island"
+        },
+        {
+            "id": 7,
+            "pdogs_id": 1115,
+            "title": "Lawyer's Law"
+        },
+        {
+            "id": 8,
+            "pdogs_id": 1116,
+            "title": "Hyper Hitting Hits"
+        },
+        {
+            "id": 9,
+            "pdogs_id": 1123,
+            "title": "Duke's Dusty Dorm"
+        },
+        {
+            "id": 10,
+            "pdogs_id": 1158,
+            "title": "Jobs Jail"
+        },
+        {
+            "id": 11,
+            "pdogs_id": 1191,
+            "title": "Kinko Kagi Kanri"
+        }
     ],
     "teams": [
-        { "id": 1, "name": "Nooglers+1 (Ulsan National Institute of Science and Technology)" },
-        { "id": 2, "name": "hYEAHyea (KAIST)" },
-        { "id": 3, "name": "Flareon (Seoul National University)" },
-        { "id": 4, "name": "Codingmothae (Korea Aerospace University)" },
-        { "id": 5, "name": "NaHonJaMyWay (Hanyang University)" },
-        { "id": 6, "name": "PSPartner (Dong-A University)" },
-        { "id": 7, "name": "Here comes NTNU tuna (National Taiwan Normal University)" },
-        { "id": 8, "name": "3KB (Kyonggi University)" },
-        { "id": 9, "name": "DaGreatHappyNaru (Gwangju Institute of Science and Technology)" },
-        { "id": 10, "name": "Heroesneverdie#2 (Soongsil University)" },
-        { "id": 11, "name": "HISASIBURI (Kookmin University)" },
-        { "id": 12, "name": "PUUUNGSEON (Korea University)" },
-        { "id": 13, "name": "KOONG KWANG KWANG (Hanyang University ERICA Campus)" },
-        { "id": 14, "name": "Han_Gil (Kookmin University)" },
-        { "id": 15, "name": "DoongDooRooDaRaDang (Pusan National University)" },
-        { "id": 16, "name": "weasle (Hongik University)" },
-        { "id": 17, "name": "NCTU_Radar (National Chiao Tung University)" },
-        { "id": 18, "name": "GOBACK (Seoul National University)" },
-        { "id": 19, "name": "LLL (Peking University)" },
-        { "id": 20, "name": "AC_FROM_ZZAM (Korea University)" },
-        { "id": 21, "name": "Coding Slaves (Pusan National University)" },
-        { "id": 22, "name": "BUFS RODAH! (Busan University of Foreign Studies)" },
-        { "id": 23, "name": "Algorist (Sejong University)" },
-        { "id": 24, "name": "JeonGirl (Hankuk University of Foreign Studies)" },
-        { "id": 25, "name": "313usually (KAIST)" },
-        { "id": 26, "name": "Bubble Bath (Yonsei University)" },
-        { "id": 27, "name": "CodingMonGO (Kyung Hee University)" },
-        { "id": 28, "name": "NPC1 (SungKyunKwan University)" },
-        { "id": 29, "name": "MeowiNThebox (National Taiwan University)" },
-        { "id": 30, "name": "LipCoding (Seoul National University)" },
-        { "id": 31, "name": "VANSu_gak (SungKyunKwan University)" },
-        { "id": 32, "name": "BByuBByuBBiBByuBBi (Seoul National University)" },
-        { "id": 33, "name": "575.cpp (University of Aizu)" },
-        { "id": 34, "name": "afterschool (Chungbuk National University)" },
-        { "id": 35, "name": "DefineRainsFromAbove (Dongguk University)" },
-        { "id": 36, "name": "ASC (Yonsei University Wonju Campus)" },
-        { "id": 37, "name": "The Hedgehogs (Ulsan National Institute of Science and Technology)" },
-        { "id": 38, "name": "yeo_hisashiburi (Ajou University)" },
-        { "id": 39, "name": "ANT1 (Chungnam National University)" },
-        { "id": 40, "name": "EC1 (Seoul National University of Science & Technology)" },
-        { "id": 41, "name": "Algor (University of Seoul)" },
-        { "id": 42, "name": "GoldenGate (Sookmyung Women's University)" },
-        { "id": 43, "name": "HeroesNeverDie (Inha University)" },
-        { "id": 44, "name": "Kimchi rains from above (Seoul National University)" },
-        { "id": 45, "name": "hanzo (Hanyang University)" },
-        { "id": 46, "name": "Gamakmot (Ulsan National Institute of Science and Technology)" },
-        { "id": 47, "name": "joisndra (Kyoto University)" },
-        { "id": 48, "name": "Is this hard mode? (KAIST)" },
-        { "id": 49, "name": "SeMyungE_HANZO (Hanyang University)" },
-        { "id": 50, "name": "HeroesEverDie (Inha University)" },
-        { "id": 51, "name": "HanzoGak (Sangmyung University)" },
-        { "id": 52, "name": "Why so serious (Chonnam National University)" },
-        { "id": 53, "name": "yesanswer (Soongsil University)" },
-        { "id": 54, "name": "Red Velvet (Seoul National University)" },
-        { "id": 55, "name": "HackNoZam (The Catholic University of Korea)" },
-        { "id": 56, "name": "PLEASE OPEN TESTDATA (Seoul National University)" },
-        { "id": 57, "name": "AAA (Ajou University)" },
-        { "id": 58, "name": "Trilobite (Sogang University)" },
-        { "id": 59, "name": "MAZIMAK_IPSE (Chungbuk National University)" },
-        { "id": 60, "name": "Never Give Up (Korea University)" },
-        { "id": 61, "name": "Bit Da Bit (Kyungpook National University)" },
-        { "id": 62, "name": "Real Recognize Real (Yonsei University)" },
-        { "id": 63, "name": "2SulTokTok (Korea University)" },
-        { "id": 64, "name": "BurungBurungBusKisa (Hanyang University)" },
-        { "id": 65, "name": "Master Spark (Pohang University of Science and Technology)" },
-        { "id": 66, "name": "NINANO (Sogang University)" },
-        { "id": 67, "name": "GENTWIHAN (Kumoh National Institute of Technology)" },
-        { "id": 68, "name": "PuzzleC (Kangwon National University)" },
-        { "id": 69, "name": "Team_10_deung (Soongsil University)" },
-        { "id": 70, "name": "ACGTeam (Seoul National University)" },
-        { "id": 71, "name": "Ghost (Handong Global University)" },
-        { "id": 72, "name": "LOGIC (Chosun University)" },
-        { "id": 73, "name": "lowpass (Korea University of Technology and Education)" },
-        { "id": 74, "name": "HAPpy (Pukyong National University)" },
-        { "id": 75, "name": "CocaCola (KAIST)" },
-        { "id": 76, "name": "Zaranara murymury (Chung-Ang University)" },
-        { "id": 77, "name": "ShyShyShy (Ewha Womans University)" },
-        { "id": 78, "name": "BuzzerBeater (Soongsil University)" },
-        { "id": 79, "name": "Dohchuk (Ulsan National Institute of Science and Technology)" },
-        { "id": 80, "name": "Train_To_Daejeon (The Chinese University of Hong Kong)" },
-        { "id": 81, "name": "Hello World Final! (Seoul National University)" },
-        { "id": 82, "name": "PS00 (KAIST)" },
-        { "id": 83, "name": "9664P (Seoul National University)" },
-        { "id": 84, "name": "SRC (Korea University)" },
-        { "id": 85, "name": "GuiYomee (Pohang University of Science and Technology)" },
-        { "id": 86, "name": "Give Me Balloon (Daegu Science High School)" }
+        {
+            "id": 0,
+            "name": "嗷嗷我是一隻貓",
+            "pdogs_id": 373,
+            "members": [
+                2635,
+                2805,
+                3763
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Ingénieur Maniac",
+            "pdogs_id": 374,
+            "members": [
+                3984,
+                4082,
+                4817
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Greedy",
+            "pdogs_id": 375,
+            "members": [
+                3723,
+                2319,
+                5314
+            ]
+        },
+        {
+            "id": 3,
+            "name": "pizzaHotHot大笑",
+            "pdogs_id": 376,
+            "members": [
+                3302,
+                3301,
+                3303
+            ]
+        },
+        {
+            "id": 4,
+            "name": "我爛",
+            "pdogs_id": 377,
+            "members": [
+                4271,
+                3894,
+                4781
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Ashes",
+            "pdogs_id": 378,
+            "members": [
+                2806,
+                5317,
+                5319
+            ]
+        },
+        {
+            "id": 6,
+            "name": "304ρћòꓭó ",
+            "pdogs_id": 379,
+            "members": [
+                4078,
+                5332,
+                5335
+            ]
+        },
+        {
+            "id": 7,
+            "name": "披薩丼真香",
+            "pdogs_id": 380,
+            "members": [
+                5336,
+                2759
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Zen",
+            "pdogs_id": 381,
+            "members": [
+                5330,
+                5331,
+                5339
+            ]
+        },
+        {
+            "id": 9,
+            "name": "turtlescanfly",
+            "pdogs_id": 382,
+            "members": [
+                5340,
+                5344,
+                5348
+            ]
+        },
+        {
+            "id": 10,
+            "name": "沈老師ADA+lex",
+            "pdogs_id": 383,
+            "members": [
+                5345,
+                1917,
+                5349
+            ]
+        },
+        {
+            "id": 11,
+            "name": "我要夏威夷披薩",
+            "pdogs_id": 384,
+            "members": [
+                4016,
+                4135,
+                5352
+            ]
+        },
+        {
+            "id": 12,
+            "name": "我來ㄔP薩",
+            "pdogs_id": 385,
+            "members": [
+                5333,
+                3335,
+                5334
+            ]
+        },
+        {
+            "id": 13,
+            "name": "226633",
+            "pdogs_id": 386,
+            "members": [
+                3982,
+                3972,
+                3989
+            ]
+        },
+        {
+            "id": 14,
+            "name": "101",
+            "pdogs_id": 387,
+            "members": [
+                5309,
+                5354,
+                5355
+            ]
+        },
+        {
+            "id": 15,
+            "name": "我只是來吃披薩",
+            "pdogs_id": 388,
+            "members": [
+                4768,
+                3980,
+                4755
+            ]
+        },
+        {
+            "id": 16,
+            "name": "怎麼沒有獎金",
+            "pdogs_id": 389,
+            "members": [
+                4267,
+                1881,
+                4074
+            ]
+        },
+        {
+            "id": 17,
+            "name": "亞當斯密",
+            "pdogs_id": 390,
+            "members": [
+                3414,
+                3366,
+                4492
+            ]
+        },
+        {
+            "id": 18,
+            "name": "這個阿瑋就是遜啦",
+            "pdogs_id": 391,
+            "members": [
+                5350,
+                5351,
+                5353
+            ]
+        },
+        {
+            "id": 19,
+            "name": "比完就去吃海底撈",
+            "pdogs_id": 392,
+            "members": [
+                3983,
+                4295,
+                4818
+            ]
+        },
+        {
+            "id": 20,
+            "name": "🈹️🈹️⚡️🈹️🈹️",
+            "pdogs_id": 393,
+            "members": [
+                1339,
+                2612,
+                5362
+            ]
+        },
+        {
+            "id": 21,
+            "name": "欸你冷不冷",
+            "pdogs_id": 394,
+            "members": [
+                5361,
+                1985,
+                3244
+            ]
+        },
+        {
+            "id": 22,
+            "name": "std::min",
+            "pdogs_id": 395,
+            "members": [
+                4579,
+                3963,
+                3996
+            ]
+        },
+        {
+            "id": 23,
+            "name": "傻眼米血米腸",
+            "pdogs_id": 396,
+            "members": [
+                1876,
+                2062,
+                2407
+            ]
+        },
+        {
+            "id": 24,
+            "name": "竹林7賢",
+            "pdogs_id": 397,
+            "members": [
+                2724,
+                3387
+            ]
+        },
+        {
+            "id": 25,
+            "name": "外系宰仔",
+            "pdogs_id": 398,
+            "members": [
+                4072,
+                3910,
+                4449
+            ]
+        },
+        {
+            "id": 26,
+            "name": "沈瑜落彥心心相印",
+            "pdogs_id": 399,
+            "members": [
+                3310,
+                3283,
+                3479
+            ]
+        },
+        {
+            "id": 27,
+            "name": "洪流欣羽",
+            "pdogs_id": 400,
+            "members": [
+                4142,
+                1956,
+                5304
+            ]
+        },
+        {
+            "id": 28,
+            "name": "拼數小隊",
+            "pdogs_id": 401,
+            "members": [
+                3906,
+                5337,
+                5358
+            ]
+        },
+        {
+            "id": 29,
+            "name": "Accepted",
+            "pdogs_id": 402,
+            "members": [
+                3979,
+                4040,
+                4402
+            ]
+        },
+        {
+            "id": 30,
+            "name": "AYDD",
+            "pdogs_id": 403,
+            "members": [
+                5365,
+                5366,
+                5367
+            ]
+        },
+        {
+            "id": 31,
+            "name": "取個十三個字的隊名就好了吧",
+            "pdogs_id": 404,
+            "members": [
+                5363,
+                5315,
+                5364
+            ]
+        },
+        {
+            "id": 32,
+            "name": "我弱",
+            "pdogs_id": 405,
+            "members": [
+                5356,
+                3188,
+                5357
+            ]
+        },
+        {
+            "id": 33,
+            "name": "好吃披薩",
+            "pdogs_id": 406,
+            "members": [
+                5342,
+                5341
+            ]
+        },
+        {
+            "id": 34,
+            "name": "琦玉在荷葉上吃巧克力",
+            "pdogs_id": 407,
+            "members": [
+                4521,
+                4092,
+                4446
+            ]
+        },
+        {
+            "id": 35,
+            "name": "PizzaTeam",
+            "pdogs_id": 408,
+            "members": [
+                3973,
+                4217,
+                4763
+            ]
+        },
+        {
+            "id": 36,
+            "name": "希望這一分會讓我A+ ",
+            "pdogs_id": 409,
+            "members": [
+                4157,
+                5322
+            ]
+        },
+        {
+            "id": 37,
+            "name": "我沒想法耶",
+            "pdogs_id": 410,
+            "members": [
+                4226,
+                5305,
+                5311
+            ]
+        },
+        {
+            "id": 38,
+            "name": "隊名重要嗎",
+            "pdogs_id": 411,
+            "members": [
+                3977,
+                4043,
+                4115
+            ]
+        },
+        {
+            "id": 39,
+            "name": "Tentacool",
+            "pdogs_id": 412,
+            "members": [
+                5296,
+                5411
+            ]
+        },
+        {
+            "id": 40,
+            "name": "bugrammer",
+            "pdogs_id": 413,
+            "members": [
+                4195,
+                3978,
+                4762
+            ]
+        },
+        {
+            "id": 41,
+            "name": "隨便",
+            "pdogs_id": 414,
+            "members": [
+                2266,
+                2285,
+                5372
+            ]
+        },
+        {
+            "id": 42,
+            "name": "㊗️茅場晶彥㊗️",
+            "pdogs_id": 415,
+            "members": [
+                3818,
+                5373,
+                5374
+            ]
+        },
+        {
+            "id": 43,
+            "name": "血盟騎士團",
+            "pdogs_id": 416,
+            "members": [
+                4268,
+                3714
+            ]
+        },
+        {
+            "id": 44,
+            "name": "全隊",
+            "pdogs_id": 417,
+            "members": [
+                5338,
+                5343,
+                5376
+            ]
+        },
+        {
+            "id": 45,
+            "name": "材不畢業",
+            "pdogs_id": 418,
+            "members": [
+                5346,
+                2491,
+                5347
+            ]
+        },
+        {
+            "id": 46,
+            "name": "IM.poster ",
+            "pdogs_id": 419,
+            "members": [
+                4519,
+                4354,
+                4888
+            ]
+        },
+        {
+            "id": 47,
+            "name": "測資好難",
+            "pdogs_id": 420,
+            "members": [
+                4134,
+                4879
+            ]
+        },
+        {
+            "id": 48,
+            "name": "哈哈哈",
+            "pdogs_id": 421,
+            "members": [
+                1892,
+                1888,
+                1930
+            ]
+        },
+        {
+            "id": 49,
+            "name": "第一隊",
+            "pdogs_id": 422,
+            "members": [
+                2762,
+                2018,
+                3574
+            ]
+        }
     ]
 }

@@ -1,5 +1,5 @@
 import express from 'express'
-import { updateContest } from '../server/lib';
+import { updateContest, updateRuns } from './lib.mjs';
 const app = express();
 /*
 app.use(cors());
@@ -84,16 +84,19 @@ app.get("/update-contest", async (req, res) => {
     res.send("Successfully updated contest.json")
   }
   catch (err) {
-    res.status(500).send(`Internal Error: ${error}`)
+    console.log(err);
+    res.status(500).send(`Internal Error: ${err}`)
   }
 })
 
 app.get("/update-runs", async function (req, res) {
   try {
+    await updateRuns();
     res.send("Successfully updated runs.json")
   }
   catch (err) {
-    res.status(500).send(`Internal Error: ${error}`)
+    console.log(err);
+    res.status(500).send(`Internal Error: ${err}`)
   }
   /*
   //fetch data from pdogs
