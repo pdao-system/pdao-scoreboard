@@ -1,4 +1,5 @@
-const express = require("express");
+import express from 'express'
+import { updateContest } from '../server/lib';
 const app = express();
 /*
 app.use(cors());
@@ -77,20 +78,21 @@ function SubmissionToRuns({ data, subCnt }) {
 }
 */
 
-app.get("/update-contest" , async(req , res)=>{
-  try{
+app.get("/update-contest", async (req, res) => {
+  try {
+    await updateContest();
     res.send("Successfully updated contest.json")
   }
-  catch(err){
+  catch (err) {
     res.status(500).send(`Internal Error: ${error}`)
   }
 })
 
 app.get("/update-runs", async function (req, res) {
-  try{
+  try {
     res.send("Successfully updated runs.json")
   }
-  catch(err){
+  catch (err) {
     res.status(500).send(`Internal Error: ${error}`)
   }
   /*
