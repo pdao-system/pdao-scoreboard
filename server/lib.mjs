@@ -10,10 +10,16 @@ export const updateContest = async () => {
         problems: [],
         teams: [],
     };
-    const teamDataResponse = await fetchFromPdogs(config.teams_url)
-    const teamDataPdogs = await teamDataResponse.json();
-    const teams = []
-    for (const [index, team] of teamDataPdogs.data.data.entries()) {
+    let pdogsTeams = []
+    let newRead = 0;
+    do {
+        const teamDataPdogs = await (await fetchFromPdogs(`${config.teams_url}?offset=${pdogsTeams.length}`)).json();
+        const newTeams = Array.from(teamDataPdogs.data.data);
+        pdogsTeams.push(...newTeams);
+        newRead = newTeams.length;
+    } while (newRead != 0)
+    const teams = [];
+    for (const [index, team] of pdogsTeams.entries()) {
         if (team.label === "PDAO 2022" && team.is_deleted === false) {
             const members = [];
             const teamData = await (await fetchFromPdogs(`https://be.pdogs.ntu.im/team/${team.id}/member`)).json()
@@ -62,35 +68,40 @@ const getTeamFromUser = (user_id, contestData) => {
 }
 
 export const updateRuns = async () => {
+    const submissionsData = await (await fetchFromPdogs(config.submissions_url)).json();
+    const contestData = JSON.parse(readFileSync(config.contest_json_path))
     let runsData = {
         times: {
-            contestTime: 18000,
-            noMoreUpdate: false,
-            timestamp: 0
+            contestTime: submissionsData.data.time.contestTime,
+            noMoreUpdate: submissionsData.data.time.noMoreUpdate,
+            timestamp: submissionsData.data.time.timestamp
         },
         runs: []
     };
-    const submissionsData = await (await fetchFromPdogs(config.submissions_url)).json();
-    const contestData = JSON.parse(readFileSync(config.contest_json_path))
     let runs = []
-    console.log(submissionsData.data.data.length)
-    for (const submission of submissionsData.data.data) {
-        if (submission.challenge_title === "PDAO") {
-            let problemId = -1;
-            for (const problem of contestData.problems) {
-                if (submission.problem_id === problem.pdogs_id) {
-                    problemId = problem.id;
-                    break;
-                }
+    console.log(submissionsData)
+    for (const submission of submissionsData.data.runs) {
+        let problemId = -1;
+        for (const problem of contestData.problems) {
+            if (submission.problem === problem.pdogs_id) {
+                problemId = problem.id;
+                break;
             }
-            runs.push({
-                id: runs.length,
-                team: getTeamFromUser(submission.account_id, contestData),
-                problem: problemId,
-                result: submission.verdict,
-                submissionTime: submission.submit_time
-            });
         }
+        let teamId = -1;
+        for (const team of contestData.teams) {
+            if (submission.team === team.pdogs_id) {
+                teamId = team.id;
+                break;
+            }
+        }
+        runs.push({
+            id: runs.length,
+            team: teamId,
+            problem: problemId,
+            result: submission.result,
+            submissionTime: submission.submissionTime
+        });
     }
     runsData.runs = Array.from(runs);
     writeFileSync(config.runs_json_path, JSON.stringify(runsData));

@@ -131,6 +131,8 @@ app.get('/', (req, res) => {
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}...`);
+  await updateContest();
+  await updateRuns();
 });

@@ -1,0 +1,7 @@
+cron:
+#  - description: "update contest info"
+#    url: /update-contest
+#    schedule: every 24 hours
+#  - description: "update runs info"
+#    url: /update-runs
+#    schedule: every 5 minutes
