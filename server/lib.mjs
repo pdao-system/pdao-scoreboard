@@ -38,8 +38,11 @@ export const updateContest = async () => {
 
     const problemDataResponse = await fetchFromPdogs(config.task_url);
     const problemDataPdogs = await problemDataResponse.json();
+    const pdogsProblems = Array.from(problemDataPdogs.data.problem);
+    pdogsProblems.sort((l, r) => { return l.challenge_label.localeCompare(r.challenge_label) })
+    //console.log(problems)
     const problems = []
-    for (const [index, problem] of problemDataPdogs.data.problem.entries()) {
+    for (const [index, problem] of pdogsProblems.entries()) {
         if (problem.is_deleted === false) {
             problems.push({
                 id: problems.length,
