@@ -1,5 +1,7 @@
 import express from 'express'
 import { updateContest, updateRuns } from './lib.mjs';
+import { config } from './config.mjs';
+import { readFileSync } from "fs";
 const app = express();
 /*
 app.use(cors());
@@ -92,7 +94,8 @@ app.get("/update-contest", async (req, res) => {
 app.get("/update-runs", async function (req, res) {
   try {
     await updateRuns();
-    res.send("Successfully updated runs.json")
+    const runs = readFileSync(config.runs_json_path)
+    res.send(`Successfully updated runs.json:${runs}`)
   }
   catch (err) {
     console.log(err);
@@ -128,6 +131,8 @@ app.use(express.static('dist'))
 app.get('/', (req, res) => {
   res.send('Hello from PDAO system group!');
 });
+
+app.use('/dynamic', express.static('/tmp'))
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;

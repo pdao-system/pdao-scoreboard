@@ -20,7 +20,7 @@ export const updateContest = async () => {
     } while (newRead != 0)
     const teams = [];
     for (const [index, team] of pdogsTeams.entries()) {
-        if (team.label === "PDAO 2022" && team.is_deleted === false) {
+        if (team.label === config.team_target && team.is_deleted === false) {
             const members = [];
             const teamData = await (await fetchFromPdogs(`https://be.pdogs.ntu.im/team/${team.id}/member`)).json()
             teamData.data.forEach(member => {
@@ -44,9 +44,10 @@ export const updateContest = async () => {
     const problems = []
     for (const [index, problem] of pdogsProblems.entries()) {
         if (problem.is_deleted === false) {
+            //console.log(problem.challenge_label.slice([-1]))
             problems.push({
                 id: problems.length,
-                name: problem.challenge_label.slice[-1],
+                name: problem.challenge_label.slice([-1]),
                 pdogs_id: problem.id,
                 title: problem.title
             })

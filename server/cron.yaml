@@ -1,7 +1,7 @@
 cron:
 #  - description: "update contest info"
 #    url: /update-contest
-#    schedule: every 24 hours
+#    schedule: every 1 hours
 #  - description: "update runs info"
 #    url: /update-runs
-#    schedule: every 5 minutes
+#    schedule: every 1 minutes

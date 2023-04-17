@@ -1,1 +1,113 @@
-{"title":"2023 PDAO - Programming Design and Optimization","systemName":"PDOGS","systemVersion":"6","problems":[{"id":0,"pdogs_id":1411,"title":"Compo and Prime Minister"},{"id":1,"pdogs_id":1412,"title":"Perfect Traveler"},{"id":2,"pdogs_id":1413,"title":"Let me do it for you"},{"id":3,"pdogs_id":1414,"title":"Cosmic Collecter"},{"id":4,"pdogs_id":1373,"title":"Yo Mama"},{"id":5,"pdogs_id":1415,"title":"Taking the Pills"},{"id":6,"pdogs_id":1416,"title":"Donut Combination"},{"id":7,"pdogs_id":1417,"title":"Kame Travelling"},{"id":8,"pdogs_id":1320,"title":"PDAO Kingdom"},{"id":9,"pdogs_id":1418,"title":"Go Bocchi"},{"id":10,"pdogs_id":1419,"title":"Frankenstein"},{"id":11,"pdogs_id":1420,"title":"Capture the Flag"}],"teams":[]}
+{
+    "title": "2023 PDAO - Programming Design and Optimization",
+    "systemName": "PDOGS",
+    "systemVersion": "6",
+    "problems": [
+        {
+            "id": 0,
+            "name": "A",
+            "pdogs_id": 1411,
+            "title": "Compo and Prime Minister"
+        },
+        {
+            "id": 1,
+            "name": "B",
+            "pdogs_id": 1412,
+            "title": "Perfect Traveler"
+        },
+        {
+            "id": 2,
+            "name": "C",
+            "pdogs_id": 1413,
+            "title": "Let me do it for you"
+        },
+        {
+            "id": 3,
+            "name": "D",
+            "pdogs_id": 1414,
+            "title": "Cosmic Collecter"
+        },
+        {
+            "id": 4,
+            "name": "E",
+            "pdogs_id": 1373,
+            "title": "Yo Mama"
+        },
+        {
+            "id": 5,
+            "name": "F",
+            "pdogs_id": 1415,
+            "title": "Taking the Pills"
+        },
+        {
+            "id": 6,
+            "name": "G",
+            "pdogs_id": 1416,
+            "title": "Donut Combination"
+        },
+        {
+            "id": 7,
+            "name": "H",
+            "pdogs_id": 1417,
+            "title": "Kame Travelling"
+        },
+        {
+            "id": 8,
+            "name": "I",
+            "pdogs_id": 1320,
+            "title": "PDAO Kingdom"
+        },
+        {
+            "id": 9,
+            "name": "J",
+            "pdogs_id": 1418,
+            "title": "IM Dating with You"
+        },
+        {
+            "id": 10,
+            "name": "K",
+            "pdogs_id": 1419,
+            "title": "Frankenstein"
+        },
+        {
+            "id": 11,
+            "name": "L",
+            "pdogs_id": 1420,
+            "title": "Capture the Flag"
+        }
+    ],
+    "teams": [
+        {
+            "id": 0,
+            "name": "system-test-team",
+            "pdogs_id": 853,
+            "members": [
+                5481
+            ]
+        },
+        {
+            "id": 1,
+            "name": "NestFemaleTeam",
+            "pdogs_id": 854,
+            "members": [
+                6351
+            ]
+        },
+        {
+            "id": 2,
+            "name": "FoXiQinYouTuan",
+            "pdogs_id": 855,
+            "members": [
+                6352
+            ]
+        },
+        {
+            "id": 3,
+            "name": "log（🦆）",
+            "pdogs_id": 856,
+            "members": [
+                6353
+            ]
+        }
+    ]
+}
