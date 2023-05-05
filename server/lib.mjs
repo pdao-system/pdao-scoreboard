@@ -1,6 +1,7 @@
 import fetch from "node-fetch"
 import { config } from "./config.mjs";
 import { readFileSync, writeFileSync } from "fs";
+import puppeteer from 'puppeteer';
 
 export const updateContest = async () => {
     let contestData = {
@@ -14,12 +15,15 @@ export const updateContest = async () => {
     let newRead = 0;
     do {
         const teamDataPdogs = await (await fetchFromPdogs(`${config.teams_url}?offset=${pdogsTeams.length}`)).json();
+        console.log(teamDataPdogs)
         const newTeams = Array.from(teamDataPdogs.data.data);
         pdogsTeams.push(...newTeams);
         newRead = newTeams.length;
     } while (newRead != 0)
     const teams = [];
+    // console.log(pdogsTeams)
     for (const [index, team] of pdogsTeams.entries()) {
+        // console.log(team)
         if (team.label === config.team_target && team.is_deleted === false) {
             const members = [];
             const teamData = await (await fetchFromPdogs(`https://be.pdogs.ntu.im/team/${team.id}/member`)).json()
@@ -35,6 +39,7 @@ export const updateContest = async () => {
         }
     }
     contestData.teams = Array.from(teams);
+    // console.log(teams)
 
     const problemDataResponse = await fetchFromPdogs(config.task_url);
     const problemDataPdogs = await problemDataResponse.json();
@@ -111,3 +116,17 @@ export const updateRuns = async () => {
     writeFileSync(config.runs_json_path, JSON.stringify(runsData));
     return;
 };
+
+export const getReport = async () => {
+    console.log("getting report!")
+    const browser = await puppeteer.launch(
+        { dumpio: true, executablePath: "./chrome-linux/chrome", args: ['--no-sandbox', "--disable-setuid-sandbox", '--headless', '--disable-gpu', '--disable-dev-shm-usage'] }
+    );
+    console.log("new browser!")
+    const page = await browser.newPage();
+    await page.setViewport({ width: 2000, height: 9000 })
+    await page.goto(config.scoreboard_url);
+    await new Promise((r) => setTimeout(r, 3000));
+    const report = await page.screenshot({ encoding: "binary" });
+    return report
+}

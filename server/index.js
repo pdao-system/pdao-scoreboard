@@ -1,7 +1,7 @@
 import express from 'express'
-import { updateContest, updateRuns } from './lib.mjs';
+import { updateContest, updateRuns, getReport } from './lib.mjs';
 import { config } from './config.mjs';
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 const app = express();
 /*
 app.use(cors());
@@ -91,6 +91,19 @@ app.get("/update-contest", async (req, res) => {
   }
 })
 
+app.get("/get-report", async (req, res) => {
+  try {
+    const report_buffer = await getReport();
+    const report_path = "/tmp/report.png";
+    writeFileSync(report_path, report_buffer);
+    res.download(report_path);
+  }
+  catch (err) {
+    console.log(err);
+    res.status(500).send(`Internal Error ${err}`)
+  }
+})
+
 app.get("/update-runs", async function (req, res) {
   try {
     await updateRuns();
@@ -132,7 +145,12 @@ app.get('/', (req, res) => {
   res.send('Hello from PDAO system group!');
 });
 
-app.use('/dynamic', express.static('/tmp'))
+app.get("/keep-alive", (req, res) => {
+  res.send("I am alive")
+});
+
+app.use('/dynamic', express.static('/tmp'));
+app.use("/static", express.static("./dist"));
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;

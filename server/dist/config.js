@@ -2,28 +2,28 @@
  * Contest Configuration
  */
 
-feed_server_path = 'https://pdao-scoreboard.de.r.appspot.com/dynamic/';
+feed_server_path = '../dynamic/';
 
 config =
 {
     // environment: 'production' or 'develop'
-    environment : 'develop',
+    environment: 'develop',
 
     /**
      * The following paths should be accessible:
      *    ${apiBase}/runs.json
      *    ${apiBase}/contest.json
      */
-    apiBase : feed_server_path,
+    apiBase: feed_server_path,
 
     /**
      * Specify additional paths to WebSocket event notifier or award information.
      */
-    path : {
-        'events_ws' : (feed_server_path + 'events')
+    path: {
+        'events_ws': (feed_server_path + 'events')
             .replace('http://', 'ws://')
             .replace('https://', 'wss://'),
-        'award_slide.json' :'./sample/award_slide.json'
+        'award_slide.json': './sample/award_slide.json'
     },
 
     /**
@@ -33,39 +33,39 @@ config =
      * If set to true,  fetch all runs from ${apiBase}/runs.json instead and
      *  only the updated runs would be inserted into the feed queue.
      */
-    auto_rundiff       : true,
+    auto_rundiff: true,
 
     /**
      * Specify timeout (in milliseconds) for ajax request.
      */
-    fetch_timeout      : 5000,
+    fetch_timeout: 5000,
 
     /**
      * Specify whether to show team group (affiliation) just below team name.
      */
-    show_team_group    : true,
+    show_team_group: true,
 
     /**
      * Specify whether to highlight first solve runs.
      */
-    show_first_solve   : true,
+    show_first_solve: true,
 
     /**
      * Specify whether to show balloon images.
      */
-    show_balloons   : true,
+    show_balloons: true,
 
     /**
      * Specify whether to automatically start the scoreboard update.
      * If false, update will be paused.
      */
-    auto_play          : true,
+    auto_play: true,
 
     /** Specify whether to show the event dashboard in the right-side. */
-    show_events        : false,
+    show_events: false,
 
     /** Specify the maximum number of recent events displayed in the dashboard. */
-    max_notifications  : 100,
+    max_notifications: 100,
 
     /**
      * Specify whether to use (flip) animation on updating team's run.
@@ -73,24 +73,24 @@ config =
      *
      * This option is ignored (always set true) in the award mode.
      */
-    animation          : false,
+    animation: false,
 
     /** The delay time (in milliseconds) to between two consecutive run feeding. */
-    auto_play_delay    : 100,
+    auto_play_delay: 100,
 
     /**
      * The interval time (in milliseconds) of fetching run updates
      * (where instant-feeding with WebSocket is not used)
      */
-    auto_refresh_interval : 10000,
+    auto_refresh_interval: 10000,
 
 
     /** Specify whether to use pagination, or the number of teams per page. */
-    pagination      : false,
-    pagination_size : 50,
+    pagination: false,
+    pagination_size: 50,
 
     /** If true, the followed team will be sticked before it goes out of the screen. */
-    use_followed_team_sticky : true,
+    use_followed_team_sticky: true,
 
     /**
      * Specify the teams to exclude from the scoreboard, as a function or a list of team id.
@@ -98,8 +98,8 @@ config =
      * e.g. function(team) { ... }
      * e.g. [1000, 1001, 1002]
      */
-    exclude_teams : function(team) {
-        if( [1000, 1001, 1002].indexOf(team.getId()) >= 0 )
+    exclude_teams: function (team) {
+        if ([1000, 1001, 1002].indexOf(team.getId()) >= 0)
             return true;
         return false;
     },
@@ -114,7 +114,7 @@ config =
      * e.g. [2000, 2001]
      */
     //foreign_teams : [ 2000, 2001 ],
-    foreign_teams : function(team) {
+    foreign_teams: function (team) {
         /* an example config */
         var foreign_teams_list = [2000, 2001];
         var foreign_affiliations = [
@@ -138,10 +138,10 @@ config =
      * Specify whether to launch award mode at startup.
      * NOTE: While this option is off, one can enter to award mode by adding '?award=true' into URL.
      */
-    award_mode         : false,
+    award_mode: false,
 
     /** Specify whether to hide the name and affiliation for unrevealed team in award mode. */
-    award_hide_name    : true,
+    award_hide_name: true,
 
     /**
      * For the purpose of simulating award ceremony with ease,
@@ -150,18 +150,18 @@ config =
      *
      * NOTE: This setting can be also configured by adding '?award_rank_begin=1' into URL.
      */
-    award_rank_begin   : null,
+    award_rank_begin: null,
 
     /**
      * Override the speed of flip and elevation animations in the award mode,
      * according to the number of problems solved.
      */
     award_animation_speeds: [
-      { solved: 10, fastFlipSpeed: 1200, slowFlipSpeed: 2000, utuSpeedFunc: function(up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
-      { solved: 9,  fastFlipSpeed: 800,  slowFlipSpeed: 1200, utuSpeedFunc: function(up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
-      { solved: 7,  fastFlipSpeed: 400,  slowFlipSpeed: 600,  utuSpeedFunc: function(up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
-      { solved: 3,  fastFlipSpeed: 200,  slowFlipSpeed: 300,  utuSpeedFunc: function(up_cnt) { return Math.min(250 + up_cnt * 50, 3000); } },
-      { solved: 0,  fastFlipSpeed: 200,  slowFlipSpeed: 300,  utuSpeedFunc: function(up_cnt) { return Math.min(150 + up_cnt * 30, 1000); } }
+        { solved: 10, fastFlipSpeed: 1200, slowFlipSpeed: 2000, utuSpeedFunc: function (up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
+        { solved: 9, fastFlipSpeed: 800, slowFlipSpeed: 1200, utuSpeedFunc: function (up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
+        { solved: 7, fastFlipSpeed: 400, slowFlipSpeed: 600, utuSpeedFunc: function (up_cnt) { return Math.min(500 + up_cnt * 100, 2000); } },
+        { solved: 3, fastFlipSpeed: 200, slowFlipSpeed: 300, utuSpeedFunc: function (up_cnt) { return Math.min(250 + up_cnt * 50, 3000); } },
+        { solved: 0, fastFlipSpeed: 200, slowFlipSpeed: 300, utuSpeedFunc: function (up_cnt) { return Math.min(150 + up_cnt * 30, 1000); } }
     ],
 
     /**
@@ -173,7 +173,7 @@ config =
      *
      * e.g. ['C', 'A', 'F']  : Reveals in order 'C', 'A', 'F', 'B', 'D', 'E', 'G', ...
      */
-    award_reveal_order : [],
+    award_reveal_order: [],
 
     /**
      * Specify whether to use blinking effect before revealing a focused pending run.
@@ -181,12 +181,12 @@ config =
      * or a function to specify trigger conditions dynamically.
      * In this case, function takes a single argument 'teamStatus', of type TeamStatus.
      */
-    award_focus_blinking : function(teamStatus) {
-      // use blinking effect only if # of problems solved is more than 7
-      // or current ranking of the team is less than 10.
-      var solved = teamStatus.getTotalSolved();
-      var currentRank = teamStatus.getRank();
-      return solved >= 7 || currentRank <= 10;
+    award_focus_blinking: function (teamStatus) {
+        // use blinking effect only if # of problems solved is more than 7
+        // or current ranking of the team is less than 10.
+        var solved = teamStatus.getTotalSolved();
+        var currentRank = teamStatus.getRank();
+        return solved >= 7 || currentRank <= 10;
     },
 };
 
